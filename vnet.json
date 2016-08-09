@@ -46,17 +46,18 @@
     }
   },
   "variables": {
-    "apiVersion": "2016-06-30"
+    "apiVersion": "2015-06-15",
+	"location": "East US 2"
   },
   "resources": [
     {
-      "apiVersion": "[variables('apiVersion')]",
+      "name": "virtualnetworkcreate",
       "type": "Microsoft.Network/virtualNetworks",
-      "name": "[parameters('vnetName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[variables('location')]",
+	  "apiVersion": "[variables('apiVersion')]",
       "properties": {
         "addressSpace": {
-          "addresses": [
+          "addressPrefixes": [
             "[parameters('vnetAddress')]"
           ]
         },
@@ -64,13 +65,13 @@
           {
             "name": "[parameters('subnet1Name')]",
             "properties": {
-              "address": "[parameters('subnet1')]"
+              "addressPrefix": "[parameters('subnet1')]"
             }
           },
           {
             "name": "[parameters('subnet2Name')]",
             "properties": {
-              "address": "[parameters('subnet2')]"
+              "addressPrefix": "[parameters('subnet2')]"
             }
           }
         ]
