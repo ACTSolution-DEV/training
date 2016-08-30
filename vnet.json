@@ -48,7 +48,7 @@
   "variables": {
     "apiVersion": "2015-06-15",
 	"location": "East US 2"
-	"vnetName": "[concat(parameters('NamePrefix'),'-VNET')]",
+	"vnetName": "[concat(parameters('NamePrefix'),'-VNET')]"
   },
   "resources": [
     {
