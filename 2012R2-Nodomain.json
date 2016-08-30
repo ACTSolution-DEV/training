@@ -66,17 +66,17 @@
     "publicIPAddressType": "Dynamic",
     "vmStorageAccountContainerName": "vhds",
     "vmName": "[concat(parameters('NamePrefix'),'-VM1')]",
-    "virtualNetworkName": "virtualnetworkcreate",
+    "virtualNetworkName": "actsdemovnet",
 	"RGname": "[resourceGroup().name]",
     "vnetID": "[resourceId(variables('RGname'), 'Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/', parameters('subnetName'))]",
-    "apiVersion": "2016-06-010"
+    "apiVersion": "2016-07-01"
   },
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[variables('storageAccountName')]",
-      "apiVersion": "[variables('apiVersion')]",
+      "apiVersion": "2015-06-15",
       "location": "[resourceGroup().location]",
       "properties": {
         "accountType": "[variables('storageAccountType')]"
@@ -120,7 +120,7 @@
       }
     },
     {
-      "apiVersion": "[variables('apiVersion')]",
+      "apiVersion": "2016-03-30",
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[variables('vmName')]",
       "location": "[resourceGroup().location]",

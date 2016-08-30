@@ -51,7 +51,7 @@
   },
   "resources": [
     {
-      "name": "virtualnetworkcreate",
+      "name": "[parameters('vnetName')]",
       "type": "Microsoft.Network/virtualNetworks",
       "location": "[variables('location')]",
 	  "apiVersion": "[variables('apiVersion')]",
