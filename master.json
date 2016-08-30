@@ -152,6 +152,7 @@
           "adminPassword": { "value": "[parameters('adminPassword')]" },
           "NamePrefix": { "value": "[parameters('NamePrefix')]" },
           "dnsLabelPrefix": { "value": "[parameters('dnsLabelPrefix')]" },
+          "vnetName": { "value": "[variables('networkname')]" },
 		  "VMSize": { "value": "[parameters('VMSize')]" },
 		  "subnetname": { "value": "[parameters('subnet1Name')]" },
 		  "windowsOSVersion": { "value": "[parameters('windowsOSVersion')]" }

@@ -40,7 +40,13 @@
         "description": "Subnet needed to connect vitual machine"
       }
     },
-    "windowsOSVersion": {
+	"vnetName": {
+		"type": "string",
+		"metadata": {
+			"description": "Virtual Network Name"
+		}
+	},
+	"windowsOSVersion": {
       "type": "string",
       "defaultValue": "2012-R2-Datacenter",
       "allowedValues": [
@@ -66,9 +72,8 @@
     "publicIPAddressType": "Dynamic",
     "vmStorageAccountContainerName": "vhds",
     "vmName": "[concat(parameters('NamePrefix'),'-VM1')]",
-    "virtualNetworkName": "actsdemovnet",
 	"RGname": "[resourceGroup().name]",
-    "vnetID": "[resourceId(variables('RGname'), 'Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
+    "vnetID": "[resourceId(variables('RGname'), 'Microsoft.Network/virtualNetworks', parameters('vnetName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/', parameters('subnetName'))]",
     "apiVersion": "2016-07-01"
   },
