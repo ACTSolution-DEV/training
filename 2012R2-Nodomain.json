@@ -60,7 +60,6 @@
     "imagePublisher": "MicrosoftWindowsServer",
     "imageOffer": "WindowsServer",
     "OSDiskName": "[concat(tolower(parameters('NamePrefix')),'osdisk')]",
-	"vnetName": "[concat(parameters('NamePrefix'),'-VNET')]",
     "nicName": "[concat(parameters('NamePrefix'),'-nic')]",
 	"storageAccountType": "Standard_LRS",
     "publicIPAddressName": "[concat(parameters('NamePrefix'),'-PIP')]",
@@ -68,6 +67,7 @@
     "vmStorageAccountContainerName": "vhds",
     "vmName": "[concat(parameters('NamePrefix'),'-VM1')]",
 	"RGname": "[resourceGroup().name]",
+	"vnetName": "[concat(parameters('NamePrefix'),'-VNET')]",
     "vnetID": "[resourceId(variables('RGname'), 'Microsoft.Network/virtualNetworks', variables('vnetName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/', parameters('subnetName'))]",
     "apiVersion": "2016-07-01"
