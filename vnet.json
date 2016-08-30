@@ -52,7 +52,7 @@
   },
   "resources": [
     {
-      "name": "[parameters('vnetName')]",
+      "name": "[variables('vnetName')]",
       "type": "Microsoft.Network/virtualNetworks",
       "location": "[variables('location')]",
 	  "apiVersion": "[variables('apiVersion')]",
