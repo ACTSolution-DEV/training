@@ -109,7 +109,7 @@
     },
     "variables": {
 	"apiVersion": "2016-06-01",
-	"vnetName": "[concat(parameters('NamePrefix'),'-VNET')]",
+//	"vnetName": "[concat(parameters('NamePrefix'),'-VNET')]",
 	"vnetdeploy": "vnetdeploy",
 	"vmdeploy": "vmdeploy",
 	"vnettemplateurl": "[concat(parameters('templateurl'),'/vnet.json')]",
@@ -127,7 +127,8 @@
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
-          "vnetName": { "value": "[variables('vnetName')]" },
+//          "vnetName": { "value": "[variables('vnetName')]" },
+		  "NamePrefix": { "value": "[parameters('NamePrefix')]" },
           "vnetAddress": { "value": "[parameters('vnetAddress')]" },
           "subnet1": { "value": "[parameters('subnet1')]" },
           "subnet2": { "value": "[parameters('subnet2')]" }
@@ -152,7 +153,7 @@
           "adminPassword": { "value": "[parameters('adminPassword')]" },
           "NamePrefix": { "value": "[parameters('NamePrefix')]" },
           "dnsLabelPrefix": { "value": "[parameters('dnsLabelPrefix')]" },
-          "vnetName": { "value": "[variables('vnetName')]" },
+//          "vnetName": { "value": "[variables('vnetName')]" },
 		  "VMSize": { "value": "[parameters('VMSize')]" },
 		  "subnetname": { "value": "[parameters('subnet1Name')]" },
 		  "windowsOSVersion": { "value": "[parameters('windowsOSVersion')]" }

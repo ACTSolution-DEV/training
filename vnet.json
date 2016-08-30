@@ -2,19 +2,19 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "vnetName": {
-      "type": "string",
-      "defaultValue": "VNet1",
-      "metadata": {
-        "description": "VNet name"
-      }
-    },
     "vnetAddress": {
       "type": "string",
       "defaultValue": "10.0.0.0/16",
       "metadata": {
         "description": "Address "
       }
+    },
+	"NamePrefix": {
+      "type": "string",
+      "metadata": {
+        "description": "Naming prefix for each VM name. 8-char max, lowercase alpha and numeric"
+      },
+      "defaultValue": "ACTSDEMO"
     },
     "subnet1": {
       "type": "string",
@@ -48,6 +48,7 @@
   "variables": {
     "apiVersion": "2015-06-15",
 	"location": "East US 2"
+	"vnetName": "[concat(parameters('NamePrefix'),'-VNET')]",
   },
   "resources": [
     {

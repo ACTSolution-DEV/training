@@ -40,13 +40,6 @@
         "description": "Subnet needed to connect vitual machine"
       }
     },
-    "vnetName": {
-      "type": "string",
-      "defaultValue": "VNet1",
-      "metadata": {
-        "description": "VNet name"
-      }
-    },
 	"windowsOSVersion": {
       "type": "string",
       "defaultValue": "2012-R2-Datacenter",
@@ -67,6 +60,7 @@
     "imagePublisher": "MicrosoftWindowsServer",
     "imageOffer": "WindowsServer",
     "OSDiskName": "[concat(tolower(parameters('NamePrefix')),'osdisk')]",
+	"vnetName": "[concat(parameters('NamePrefix'),'-VNET')]",
     "nicName": "[concat(parameters('NamePrefix'),'-nic')]",
 	"storageAccountType": "Standard_LRS",
     "publicIPAddressName": "[concat(parameters('NamePrefix'),'-PIP')]",
@@ -74,7 +68,7 @@
     "vmStorageAccountContainerName": "vhds",
     "vmName": "[concat(parameters('NamePrefix'),'-VM1')]",
 	"RGname": "[resourceGroup().name]",
-    "vnetID": "[resourceId(variables('RGname'), 'Microsoft.Network/virtualNetworks', parameters('vnetName'))]",
+    "vnetID": "[resourceId(variables('RGname'), 'Microsoft.Network/virtualNetworks', variables('vnetName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/', parameters('subnetName'))]",
     "apiVersion": "2016-07-01"
   },
