@@ -72,7 +72,7 @@
     "publicIPAddressType": "Dynamic",
 	"vmExtensionName": "dscExtension",
     "vmStorageAccountContainerName": "vhds",
-	"modulesUrl": "[concat(parameters('modulesurl')),'/iis.ps1.zip']",
+	"modulesUrl": "[concat(parameters('modulesurl'),'/iis.ps1.zip')]",
 	"configurationFunction": "IIS",
     "vmName": "[concat(parameters('NamePrefix'),'-VM1')]",
 	"vnetName": "[concat(parameters('NamePrefix'),'-VNET')]",
