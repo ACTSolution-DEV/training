@@ -51,6 +51,12 @@
       "metadata": {
         "description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter."
       }
+    },
+	"templateurl": {
+		"type": "string",
+        "metadata": {
+           "description": "URL for the DSC configuration module. NOTE: Can be a Github url(raw) to the zip file"
+        }
     }
   },
   "variables": {
@@ -64,7 +70,10 @@
 	"storageAccountType": "Standard_LRS",
     "publicIPAddressName": "[concat(parameters('NamePrefix'),'-PIP')]",
     "publicIPAddressType": "Dynamic",
+	"vmExtensionName": "dscExtension",
     "vmStorageAccountContainerName": "vhds",
+	"modulesUrl": "[concat(parameters('templateurl'),'/iis.ps1.zip']",
+	"configurationFunction": "IIS",
     "vmName": "[concat(parameters('NamePrefix'),'-VM1')]",
 	"vnetName": "[concat(parameters('NamePrefix'),'-VNET')]",
 	"RGname": "[resourceGroup().name]",
@@ -179,5 +188,27 @@
         }
       }
     }
-  ]
+    {
+	"type": "Microsoft.Compute/virtualMachines/extensions",
+	"name": "[concat(variables('vmName'),'/', variables('vmExtensionName'))]",
+	"apiVersion": "2015-05-01-preview",
+	"location": "[resourceGroup().location]",
+	"dependsOn": [
+			"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+		],
+		"properties": {
+			"publisher": "Microsoft.Powershell",
+			"type": "DSC",
+			"typeHandlerVersion": "2.8",
+			"settings": {
+			"ModulesUrl": "[variables('modulesUrl')]",
+				"ConfigurationFunction": "[variables('configurationFunction')]",
+				"Properties": {
+					"MachineName": "[variables('vmName')]"
+				}
+			},
+			"protectedSettings": null
+			}
+		}
+	]
 }
