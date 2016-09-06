@@ -73,7 +73,7 @@
 	"vmExtensionName": "dscExtension",
     "vmStorageAccountContainerName": "vhds",
 	"modulesUrl": "[concat(parameters('modulesurl'),'/iis.ps1.zip')]",
-	"configurationFunction": "IIS",
+	"configurationFunction": "IIS.ps1\\IIS",
     "vmName": "[concat(parameters('NamePrefix'),'-VM1')]",
 	"vnetName": "[concat(parameters('NamePrefix'),'-VNET')]",
 	"RGname": "[resourceGroup().name]",
