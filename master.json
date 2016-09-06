@@ -154,7 +154,7 @@
 		  "VMSize": { "value": "[parameters('VMSize')]" },
 		  "subnetname": { "value": "[parameters('subnet1Name')]" },
 		  "windowsOSVersion": { "value": "[parameters('windowsOSVersion')]" },
-		  "templateurl": ( "value": "[parameters('templateurl')]")
+		  "templateurl": { "value": "[parameters('templateurl')]"}
         }
       }
 	}
