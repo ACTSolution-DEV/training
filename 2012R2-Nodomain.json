@@ -187,7 +187,7 @@
           }
         }
       }
-    }
+    },
     {
 	"type": "Microsoft.Compute/virtualMachines/extensions",
 	"name": "[concat(variables('vmName'),'/', variables('vmExtensionName'))]",
