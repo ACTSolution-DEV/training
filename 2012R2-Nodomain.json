@@ -52,7 +52,7 @@
         "description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter."
       }
     },
-	"templateurl": {
+	"modulesurl": {
 		"type": "string",
         "metadata": {
            "description": "URL for the DSC configuration module. NOTE: Can be a Github url(raw) to the zip file"
@@ -72,7 +72,7 @@
     "publicIPAddressType": "Dynamic",
 	"vmExtensionName": "dscExtension",
     "vmStorageAccountContainerName": "vhds",
-	"modulesUrl": "[concat(parameters('templateurl'),'/iis.ps1.zip']",
+	"modulesUrl": "[concat(parameters('modulesurl'),'/iis.ps1.zip']",
 	"configurationFunction": "IIS",
     "vmName": "[concat(parameters('NamePrefix'),'-VM1')]",
 	"vnetName": "[concat(parameters('NamePrefix'),'-VNET')]",

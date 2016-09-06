@@ -105,6 +105,13 @@
 		"metadata": {
 			"description": "Enter the Github URL"
 		}
+	},
+	"modulesurl": {
+		"type": "string",
+		"defaultValue": "https://github.com/ACTSolution/training/blob/master/",
+		"metadata": {
+			"description": "Enter the Github URL for Modules"
+		}
 	}
     },
     "variables": {
@@ -154,7 +161,7 @@
 		  "VMSize": { "value": "[parameters('VMSize')]" },
 		  "subnetname": { "value": "[parameters('subnet1Name')]" },
 		  "windowsOSVersion": { "value": "[parameters('windowsOSVersion')]" },
-		  "templateurl": { "value": "[parameters('templateurl')]"}
+		  "modulesurl": { "value": "[parameters('modulesurl')]"}
         }
       }
 	}
